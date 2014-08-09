@@ -1,6 +1,7 @@
 module RegexpM17N
   def self.non_empty?(str)
-    str = str.encode "UTF-8"
+    # to match regexp US-ASCII encoding and fix compatibility regexp error
+    str = str.encode "US-ASCII"
     str =~ /^.+$/
   end
 end
